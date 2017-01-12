@@ -12,6 +12,6 @@ public class CachedThreadPool {
         for(int i = 0; i < 5; i++){
             exec.execute(new LiftOff());
         }
-        exec.shutdown();
+        exec.shutdown();  //可以防止新任务被提交给这个Executor
     }
 }

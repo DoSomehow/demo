@@ -21,7 +21,7 @@ public class LiftOff implements Runnable {
     public void run(){
         while(countDown-- > 0){
             System.out.print(status());
-            Thread.yield();
+            Thread.yield();  //让步，不过这只是一个暗示，没有任何机制保证它将被采纳
         }
     }
 }
