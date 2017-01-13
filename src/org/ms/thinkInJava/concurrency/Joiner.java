@@ -18,6 +18,6 @@ public class Joiner extends Thread {
         } catch (InterruptedException e) {
             System.out.println("Interrupted");
         }
-        System.out.println(getName() + "join completed");
+        System.out.println(getName() + " join completed");
     }
 }
