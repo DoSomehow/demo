@@ -33,8 +33,7 @@ public class AttemptLocking {
         }
     }
 
-    public static void main(String[] args) {
-        final AttemptLocking al = new AttemptLocking();
+    public static void main(String[] args) {        final AttemptLocking al = new AttemptLocking();
         al.untimed();  //True -- lock is available
         al.timed();  //True -- lock is available
         //Now create a separate task to grab the lock;
