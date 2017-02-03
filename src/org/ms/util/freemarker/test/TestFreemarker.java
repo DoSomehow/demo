@@ -24,7 +24,7 @@ public class TestFreemarker {
             cfg.setClassForTemplateLoading(TestFreemarker.class ,  "/org/ms/util/freemarker/test" ); //指定模板所在的classpath目录
             cfg.setSharedVariable("upperFC" ,  new  UpperFirstCharacter()); //添加一个"宏"共享变量用来将属性名首字母大写
             Template t = cfg.getTemplate("javabean.html" ); //指定模板
-            FileOutputStream fos = new  FileOutputStream( new File( "d:/Student2.java")); //java文件的生成目录
+            FileOutputStream fos = new  FileOutputStream( new File( "d:/Student4.java")); //java文件的生成目录
 
             //模拟数据源
             Map data = new  HashMap();
