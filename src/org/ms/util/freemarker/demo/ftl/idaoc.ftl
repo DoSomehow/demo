@@ -3,6 +3,7 @@ package ${package};
 import java.util.List;
 import org.sotower.util.Page;
 import com.hzwq.mip.common.Criteria;
+import ${basePackage}.bo.${boClassName};
 ${importClass}
 
 /**

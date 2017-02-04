@@ -1,13 +1,15 @@
 package ${package};
 
+import java.util.List;
+import java.util.ArrayList;
 import com.hzwq.mip.common.BaseDaoc;
+import ${basePackage}.bo.${boClassName};
 ${importClass}
 
 /**
 * <${boName}> 持久层实现类
 * @author ${author}
 */
-public interface I${boClassName}Daoc {
 public class ${boClassName}Daoc extends BaseDaoc implements I${boClassName}Daoc{
 
     <#list methodList as method>
@@ -18,7 +20,7 @@ public class ${boClassName}Daoc extends BaseDaoc implements I${boClassName}Daoc{
 
         Object[] params = new Object[]{
             ${method.params}
-        }
+        };
         return super.update(sb.toString(), params);
     }
 
@@ -33,7 +35,7 @@ public class ${boClassName}Daoc extends BaseDaoc implements I${boClassName}Daoc{
         for(${boClassName} entity:entities){
             Object[] params = new Object[]{
                 ${method.params}
-            }
+            };
         }
         return super.batchUpdate(sql, paramsList);
     }
@@ -46,9 +48,9 @@ public class ${boClassName}Daoc extends BaseDaoc implements I${boClassName}Daoc{
 
         criteria.clearFilteredValues();
         <#list fieldList as field>
-        if(criteria.isNotEmpty(${field.name})){
+        if(criteria.isNotEmpty("${field.name}")){
             sb.append(" and ${field.dbName} = ? ");
-            criteria.addFilteredValue(criteria.getStringValue(${field.name}));
+            criteria.addFilteredValue(criteria.getStringValue("${field.name}"));
         }
         </#list>
 
@@ -62,9 +64,9 @@ public class ${boClassName}Daoc extends BaseDaoc implements I${boClassName}Daoc{
 
         criteria.clearFilteredValues();
         <#list fieldList as field>
-        if(criteria.isNotEmpty(${field.name})){
+        if(criteria.isNotEmpty("${field.name}")){
             sb.append(" and ${field.dbName} = ? ");
-            criteria.addFilteredValue(criteria.getStringValue(${field.name}));
+            criteria.addFilteredValue(criteria.getStringValue("${field.name}"));
         }
         </#list>
 

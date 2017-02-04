@@ -1,9 +1,11 @@
 package ${package};
 
-import org.sotower.webc.context.WebContext;
+import java.util.List;
 import org.sotower.util.Page;
 import com.hzwq.mip.common.Criteria;
-import java.util.List;
+import org.sotower.webc.context.WebContext;
+import ${basePackage}.bo.${boClassName};
+import ${basePackage}.bizc.I${boClassName}Bizc;
 ${importClass}
 
 /**
@@ -18,11 +20,17 @@ public class ${boClassName}Webc extends BaseWebc implements I${boClassName}Webc 
     //${method.comment}
     public void ${method.name}(WebContext context){
         ${boClassName} ${boClassName?uncap_first} = super.bindFormData(context, ${boClassName}.class);
-        //List<${boClassName}>[] array = super.bindEditgridData(context, ${boClassName}.class, "${boClassName}Grid"); //批量增删改使用
         ${boClassName?uncap_first}Bizc.${method.name}(${boClassName?uncap_first});
     }
 
     </#list>
+    //批量增删改
+    public void batchCUD(WebContext context){
+        List<${boClassName}>[] array = super.bindEditgridData(context, ${boClassName}.class, "${boClassName}Grid");
+        //增：array[0] 改：array[1] 删：array[2]，请据此确认与batchCUD方法中参数的对应关系
+        ${boClassName?uncap_first}Bizc.batchCUD(array[0], array[1], array[2]);
+    }
+
     //查询
     public void query${boClassName}(WebContext context){
         Criteria criteria = new Criteria();
@@ -47,8 +55,9 @@ public class ${boClassName}Webc extends BaseWebc implements I${boClassName}Webc 
 
         super.setSearchData(context);
         super.setPagepolitData(context, page);
-        super.setFlexgridData(context, dataList);
+        super.setFlexgridData(context, page.getDatas());
     }
+
 
     public I${boClassName}Bizc get${boClassName}Bizc() {
         return ${boClassName?uncap_first}Bizc;

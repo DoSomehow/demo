@@ -23,7 +23,7 @@ public class TestDBConn {
     }
     public static void main(String[] args) {
         Connection conn = getConnection();
-        String sql = "select * from mip_b_detectpro";  //AccessType
+        String sql = "select * from mip_b_roundtime";  //AccessType
         PreparedStatement stmt;
         try {
             stmt = conn.prepareStatement(sql);
