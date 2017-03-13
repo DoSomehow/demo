@@ -1,4 +1,4 @@
-package org.ms.testJava.testFile;
+package org.ms.javaTest.testFile;
 
 import java.io.File;
 import java.io.IOException;

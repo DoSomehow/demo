@@ -1,6 +1,6 @@
-package org.ms.testJava;
+package org.ms.javaTest;
 
-import org.ms.testJava.entity.Wang;
+import org.ms.javaTest.entity.Wang;
 
 /**
  * Created by Administrator on 2017/1/8.
@@ -14,7 +14,7 @@ public class TestClass {
     public static void testGetClass(){
         Class wc = null;
         try {
-            wc = Class.forName("org.ms.testJava.entity.Wang");
+            wc = Class.forName("org.ms.javaTest.entity.Wang");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

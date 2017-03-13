@@ -1,4 +1,4 @@
-package org.ms.testJava;
+package org.ms.javaTest;
 
 /**
  * Created by Administrator on 2016/12/31.

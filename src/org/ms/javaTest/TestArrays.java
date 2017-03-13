@@ -1,4 +1,4 @@
-package org.ms.testJava;
+package org.ms.javaTest;
 
 import java.util.Arrays;
 import java.util.List;
