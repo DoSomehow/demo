@@ -1,4 +1,4 @@
-package org.ms.testJava.testReference;
+package org.ms.javaTest.testReference;
 
 /**
  * Created by Administrator on 2017/1/16.

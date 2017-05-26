@@ -1,4 +1,4 @@
-package org.ms.testJava.testConstructor;
+package org.ms.javaTest.testConstructor;
 
 /**
  * Created by Administrator on 2017/1/10.

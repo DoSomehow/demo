@@ -1,4 +1,4 @@
-package org.ms.testJava;
+package org.ms.javaTest;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

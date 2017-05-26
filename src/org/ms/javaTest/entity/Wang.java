@@ -1,4 +1,4 @@
-package org.ms.testJava.entity;
+package org.ms.javaTest.entity;
 
 /**
  * Created by Administrator on 2017/1/8.

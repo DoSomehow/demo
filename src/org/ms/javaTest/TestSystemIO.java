@@ -1,4 +1,4 @@
-package org.ms.testJava;
+package org.ms.javaTest;
 
 import java.io.File;
 import java.io.FileNotFoundException;
