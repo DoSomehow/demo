@@ -43,8 +43,8 @@ public class CodeGenerator {
         //1. data-model相关数据
         setDataModel(root);
 
-        //2. 通过这些数据，要根据五个模板，创建四个java类和一个XML文件。
-        String[] tmplFile = {"bo", "idaoc", "daoc", "ibizc", "bizc", "iwebc", "webc"};
+        //2. 融合模板和数据，创建java类和一个XML文件。
+        String[] tmplFile = {"bo", "idaoc", "daoc", "ibizc", "bizc", "iwebc", "webc", "xml"};
         for(String tmpl:tmplFile){
             String fileName = root.get("boClassName").toString();
             String tmplName = tmpl + ".ftl";
@@ -53,19 +53,32 @@ public class CodeGenerator {
                 tmpl = tmpl.substring(1);
                 fileName = "I" + fileName;
             }
-            if(!tmpl.equalsIgnoreCase("bo")) {
+            if(!tmpl.equalsIgnoreCase("bo")
+                    && !tmpl.equalsIgnoreCase("xml")){
                 fileName = fileName + upperFirstCharacter(tmpl);
             }
 
             root.put("package", root.get("basePackage").toString() + "." + tmpl);  //单独处理
             root.put("importClass", "");  //单独处理
 
-            String filePath = "D:\\Program Files\\iworkspace\\iProject\\src\\org\\ms\\util\\freemarker\\demo\\test\\"
-                    + tmpl +"\\"+fileName+".java";
+            String filePath = "";
+            if(tmpl.equalsIgnoreCase("xml")){
+                filePath = "D:\\Program Files\\iworkspace\\iProject\\src\\org\\ms\\util\\freemarker\\demo\\test\\"
+                        + tmpl +"\\"+fileName+".xml";
+            }else{
+                filePath = "D:\\Program Files\\iworkspace\\iProject\\src\\org\\ms\\util\\freemarker\\demo\\test\\"
+                        + tmpl +"\\"+fileName+".java";
+            }
+
             outputFile(tmplName, filePath, root);
         }
     }
 
+
+    /**
+     * 设置模板对应的数据模型
+     * @param root
+     */
     private void setDataModel(Map<String, Object> root){
         String tableName = root.get("tableName").toString();
         List<Map<String, String>> fieldList = getTableFields(tableName);  //retrieve
@@ -144,6 +157,11 @@ public class CodeGenerator {
         root.put("fieldList", fieldList_individual);
     }
 
+    /**
+     * 根据数据库表名获得bo类名
+     * @param tableName
+     * @return String
+     */
     private String getBoClassName(String tableName){
         int x = tableName.indexOf("_", 4);
         tableName = tableName.substring(x + 1);  //roundtime
@@ -151,12 +169,22 @@ public class CodeGenerator {
         return upperFirstCharacter(tableName);
     }
 
+    /**
+     * 将字符串首字母大写
+     * @param str
+     * @return String
+     */
     private String upperFirstCharacter(String str){
         char[] ca = str.toCharArray();
         ca[0] -= 32;
         return String.valueOf(ca);
     }
 
+    /**
+     * 根据数据库表名获得表中字段及其类型
+     * @param tableName
+     * @return List<Map<String, String>>
+     */
     private List<Map<String, String>> getTableFields(String tableName){
         Connection conn = getConnection();
         String sql = "select * from " + tableName;
@@ -182,6 +210,11 @@ public class CodeGenerator {
         return dataList;
     }
 
+    /**
+     * 按驼峰命名规则转换数据库表中列名
+     * @param columnName
+     * @return String
+     */
     private String convertColumnName(String columnName){
         columnName = columnName.toLowerCase();
         Matcher matcher = linePattern.matcher(columnName);
@@ -193,6 +226,11 @@ public class CodeGenerator {
         return sb.toString();
     }
 
+    /**
+     * 将数据库表中字段类型转换为对应的Java数据类型
+     * @param columnTypeName
+     * @return String
+     */
     private String columnTypeToJavaType(String columnTypeName){
         if("varchar2".equalsIgnoreCase(columnTypeName)){
             return "String";
@@ -206,6 +244,10 @@ public class CodeGenerator {
         //还是有Double的情况的，比如配送往返时间！！！！！！！！！！！！！！
     }
 
+    /**
+     * 获得数据库连接
+     * @return
+     */
     private static Connection getConnection() {
         Connection conn = null;
         try {
