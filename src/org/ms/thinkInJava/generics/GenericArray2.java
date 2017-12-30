@@ -33,7 +33,7 @@ public class GenericArray2<T> {
         }
         System.out.println();
         try{
-            Integer[] ia = gai.rep();
+            Integer[] ia = gai.rep();  //创建泛型数组的唯一方式就是创建一个被擦除类型的新数组
         }catch (Exception e){
             System.out.println(e);
         }

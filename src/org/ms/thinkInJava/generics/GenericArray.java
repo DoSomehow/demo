@@ -6,6 +6,7 @@ package org.ms.thinkInJava.generics;
 public class GenericArray<T> {
     private T[] array;
 
+    @SuppressWarnings("unchecked")
     public GenericArray(int size){
         array = (T[])new Object[size];
     }
@@ -24,9 +25,9 @@ public class GenericArray<T> {
 
     public static void main(String[] args) {
         GenericArray<Integer> gai = new GenericArray<>(10);
-        //This causes a ClassCastException
-        // 书上是这个注释，但目前在该代码中，并没有报错，是版本问题吗？  //编译时没有错，但是运行时就报错了
+        //This causes a ClassCastException  // 书上是这个注释，但目前在该代码中，并没有报错，是版本问题吗？  //编译时没有错，但是运行时就报错了
         // Integer[] ia = gai.rep();
+
         //This is OK
         Object[] oa = gai.rep();
 

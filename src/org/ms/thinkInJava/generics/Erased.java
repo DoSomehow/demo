@@ -15,10 +15,11 @@ public class Erased<T> {
         // T[] array = new T[SIZE];  //error
 
         //T[] array = (T)new Object[SIZE];  //Unchecked warning
+        // T[] array = ((T)new Object)[SIZE];  //上边的报错了，这样才没报错
 
         //自己的尝试
         T[] array2 = (T[])new Object[SIZE];  //这样是可以的
-        T obj = (T)(new Object());  //这样也是可以的
+        T obj = (T)new Object();  //这样也是可以的
 
     }
 
