@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  * Created by Administrator on 2017/2/3 0003.
  */
 public class CodeGenerator {
-    private static final String FTL_FILE_PATH = "D:\\Program Files\\iworkspace\\iProject\\src\\org\\ms\\util\\freemarker\\demo\\ftl";
+    private static final String FTL_FILE_PATH = "D:\\Program Files\\iworkspace\\iProject\\src\\org\\ms\\common\\freemarker\\demo\\ftl";
     private static final String srcPath = "com.hzwq.mip.";
     private static Pattern linePattern = Pattern.compile("_(\\w)");
     private static Configuration cfg;
@@ -63,10 +63,10 @@ public class CodeGenerator {
 
             String filePath = "";
             if(tmpl.equalsIgnoreCase("xml")){
-                filePath = "D:\\Program Files\\iworkspace\\iProject\\src\\org\\ms\\util\\freemarker\\demo\\test\\"
+                filePath = "D:\\Program Files\\iworkspace\\iProject\\src\\org\\ms\\common\\freemarker\\demo\\test\\"
                         + tmpl +"\\"+fileName+".xml";
             }else{
-                filePath = "D:\\Program Files\\iworkspace\\iProject\\src\\org\\ms\\util\\freemarker\\demo\\test\\"
+                filePath = "D:\\Program Files\\iworkspace\\iProject\\src\\org\\ms\\common\\freemarker\\demo\\test\\"
                         + tmpl +"\\"+fileName+".java";
             }
 
