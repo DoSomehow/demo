@@ -29,7 +29,6 @@ public class ArrayOfGenerics {
             spheres[i] = new ArrayList<BerylliumSphere>();
         }
 
-
     }
 
 }
