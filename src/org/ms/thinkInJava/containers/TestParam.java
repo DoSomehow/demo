@@ -16,6 +16,8 @@ public class TestParam {
         TestParam[] result = new TestParam[size];
         int n = 0;
         for (int i = 0; i < size; i++) {
+            //意思是，对于values这个数组，需要是偶数个，
+            //然后比如，第一个作为size，第二个作为loops，第三个继续作为size，第四个作为loops，以此类推
             result[i] = new TestParam(values[n++], values[n++]);
         }
         return result;
