@@ -10,7 +10,7 @@ import java.io.IOException;
  * @Description
  * @Date Created in 2019/3/20 23:59
  */
-public class BinaryFIle {
+public class BinaryFile {
 
     public static byte[] read(File bFile) throws IOException {
         BufferedInputStream bf = new BufferedInputStream(new FileInputStream(bFile));
