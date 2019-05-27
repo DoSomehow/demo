@@ -1,12 +1,12 @@
 package org.ms.thinkInJava.typeinfo.pets;
 
-public class Cat extends Pet {
+public class Cymric extends Manx {
 
-    public Cat(String name) {
+    public Cymric(String name) {
         super(name);
     }
 
-    public Cat() {
+    public Cymric() {
         super();
     }
 

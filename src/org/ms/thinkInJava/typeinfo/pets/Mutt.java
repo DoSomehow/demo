@@ -1,12 +1,11 @@
 package org.ms.thinkInJava.typeinfo.pets;
 
-public class Cat extends Pet {
+public class Mutt extends Dog {
 
-    public Cat(String name) {
+    public Mutt(String name) {
         super(name);
     }
-
-    public Cat() {
+    public Mutt() {
         super();
     }
 
