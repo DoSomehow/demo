@@ -1,4 +1,4 @@
-package ms.interfaces.inherit;
+package org.ms.thinkInJava.interfaces.inherit;
 
 public class WithInner {
 	
