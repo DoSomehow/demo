@@ -10,11 +10,13 @@ import java.util.List;
 public class CodeStatic {
 
     public static void main(String[] args) {
-        String backCodePath = "D:\\workspace\\eclipse\\eom\\EomMain\\src-ext\\modules\\gmo";
-        String frontCodePath = "D:\\workspace\\eclipse\\eom\\EomMain\\WebContent\\modules\\gmo";
+        // String backCodePath = "D:\\workspace\\eclipse\\eom\\EomMain\\src-ext\\modules\\gmo";
+        // String frontCodePath = "D:\\workspace\\eclipse\\eom\\EomMain\\WebContent\\modules\\gmo";
+        String mlpCodePath = "D:\\workspace\\vsCode\\mlp_app\\src";
 
-        staticCode(backCodePath);  //java
-        staticCode(frontCodePath);  //js jsp
+        // staticCode(backCodePath);  //java
+        // staticCode(frontCodePath);  //js jsp
+        staticCode(mlpCodePath);  //html、js
     }
 
     private static void staticCode(String path){
@@ -51,6 +53,10 @@ public class CodeStatic {
             if(file3.isFile()){
                 files.add(file3);
             }else {
+                if (file3.getName().equals("assets")) {
+                    System.out.println("skip assets");
+                    continue;
+                }
                 files.addAll(files.size(), total(file3.getPath()));
             }
         }
