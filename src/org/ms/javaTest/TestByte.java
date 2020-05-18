@@ -6,10 +6,10 @@ import java.util.Map;
 public class TestByte {
 
     public static void main(String[] args) {
-        // strToByteArr();
+         strToByteArr();
         // byteArrToStr();
         // byteArrAddStr();
-        byteArr2Str2ByteArr();
+//        byteArr2Str2ByteArr();
     }
 
     public static void byteArr2Str2ByteArr(){
@@ -23,11 +23,11 @@ public class TestByte {
     }
 
     public static void strToByteArr(){
-        String str = "abcdefgh";
+        String str = "abcdefgh1";
         byte[] arr = str.getBytes();
         System.out.println(arr);
         for (int i = 0; i < arr.length; i++) {
-            System.out.println("i: " + arr[i]);
+            System.out.println(i + ": " + arr[i]);
         }
     }
 
