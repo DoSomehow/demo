@@ -4,7 +4,7 @@ public class Human {
 
     private String name;
     private String sex;
-    private String age;
+    private Long age;
 
 
     public String getName() {
@@ -23,11 +23,11 @@ public class Human {
         this.sex = sex;
     }
 
-    public String getAge() {
+    public Long getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Long age) {
         this.age = age;
     }
 }
