@@ -12,7 +12,18 @@ public class TestString {
         // test();
         // testValueOf();
         // getLengthWithChinese();
-        getByteLength();
+        // getByteLength();
+        testSplit();
+    }
+
+    public static void testSplit() {
+        String key = "90004140126$D02$02";
+        // String key = "90004140126,D02,02";
+        String[] arr = key.split("\\$");
+        // String[] arr = key.split(",");
+        for (String str : arr) {
+            System.out.println(str);
+        }
     }
 
     public static void getByteLength() {
